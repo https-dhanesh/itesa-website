@@ -14,7 +14,105 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          created_at: string
+          description: string
+          event_date: string
+          id: string
+          image_url: string | null
+          status: Database["public"]["Enums"]["event_status"]
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          event_date: string
+          id?: string
+          image_url?: string | null
+          status?: Database["public"]["Enums"]["event_status"]
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          event_date?: string
+          id?: string
+          image_url?: string | null
+          status?: Database["public"]["Enums"]["event_status"]
+          title?: string
+        }
+        Relationships: []
+      }
+      subscribers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+        }
+        Relationships: []
+      }
+      team_members: {
+        Row: {
+          domain: string | null
+          id: string
+          image_url: string | null
+          member_type: Database["public"]["Enums"]["member_type"]
+          name: string
+          position: string
+        }
+        Insert: {
+          domain?: string | null
+          id?: string
+          image_url?: string | null
+          member_type: Database["public"]["Enums"]["member_type"]
+          name: string
+          position: string
+        }
+        Update: {
+          domain?: string | null
+          id?: string
+          image_url?: string | null
+          member_type?: Database["public"]["Enums"]["member_type"]
+          name?: string
+          position?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +121,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      event_status: "upcoming" | "ongoing" | "past"
+      member_type: "Dignitary" | "Core" | "Coordinator"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +249,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      event_status: ["upcoming", "ongoing", "past"],
+      member_type: ["Dignitary", "Core", "Coordinator"],
+    },
   },
 } as const
