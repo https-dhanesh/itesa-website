@@ -44,28 +44,31 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/80 backdrop-blur-md shadow-card border-b border-border' 
-        : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md bg-slate-900`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className="flex-shrink-0 flex">
+            {/* --- CHANGE: Replaced h1 with img tag for the logo --- */}
+            <Link to="/">
+              <img 
+                src="https://bhephgetoquqyffcbxgt.supabase.co/storage/v1/object/public/images/logo.webp" 
+                alt="ITESA Logo" 
+                className="h-10 w-auto" // Adjust height as needed
+              />
+            </Link>
+            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent pt-1 pl-2">
               ITESA
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-16 flex items-baseline space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-foreground/80 hover:text-primary-glow transition-colors duration-200 text-sm font-medium"
+                  className="text-foreground/80 hover:text-primary-glow transition-colors duration-200 text-base font-medium"
                 >
                   {link.name}
                 </Link>
@@ -73,7 +76,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Auth Buttons */}
+
           <div className="hidden md:flex items-center space-x-2">
             {user ? (
               <>
@@ -95,7 +98,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
               variant="ghost"
@@ -107,7 +109,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg mt-2 border border-border">

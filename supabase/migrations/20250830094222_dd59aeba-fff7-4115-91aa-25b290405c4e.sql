@@ -1,10 +1,8 @@
--- Create event status enum
+
 CREATE TYPE public.event_status AS ENUM ('upcoming', 'ongoing', 'past');
 
--- Create member type enum  
 CREATE TYPE public.member_type AS ENUM ('Dignitary', 'Core', 'Coordinator');
 
--- Create events table
 CREATE TABLE public.events (
     id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
@@ -15,7 +13,6 @@ CREATE TABLE public.events (
     status event_status NOT NULL DEFAULT 'upcoming'
 );
 
--- Create team_members table
 CREATE TABLE public.team_members (
     id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     name TEXT NOT NULL,
@@ -25,14 +22,12 @@ CREATE TABLE public.team_members (
     domain TEXT
 );
 
--- Create subscribers table
 CREATE TABLE public.subscribers (
     id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     email TEXT NOT NULL UNIQUE,
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
--- Create contact_submissions table
 CREATE TABLE public.contact_submissions (
     id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     name TEXT NOT NULL,
@@ -41,13 +36,11 @@ CREATE TABLE public.contact_submissions (
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
--- Enable RLS on all tables
 ALTER TABLE public.events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.team_members ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.subscribers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.contact_submissions ENABLE ROW LEVEL SECURITY;
 
--- Create public read policies (for public pages)
 CREATE POLICY "Events are viewable by everyone" 
 ON public.events FOR SELECT 
 USING (true);
@@ -56,7 +49,6 @@ CREATE POLICY "Team members are viewable by everyone"
 ON public.team_members FOR SELECT 
 USING (true);
 
--- Create policies for authenticated users (admin access)
 CREATE POLICY "Authenticated users can manage events" 
 ON public.events FOR ALL 
 USING (auth.role() = 'authenticated');
@@ -73,7 +65,6 @@ CREATE POLICY "Authenticated users can view subscribers"
 ON public.subscribers FOR SELECT 
 USING (auth.role() = 'authenticated');
 
--- Allow public to insert into subscribers and contact_submissions
 CREATE POLICY "Anyone can subscribe to newsletter" 
 ON public.subscribers FOR INSERT 
 WITH CHECK (true);
@@ -82,11 +73,10 @@ CREATE POLICY "Anyone can submit contact form"
 ON public.contact_submissions FOR INSERT 
 WITH CHECK (true);
 
--- Create storage bucket for images
 INSERT INTO storage.buckets (id, name, public) 
 VALUES ('images', 'images', true);
 
--- Create storage policies
+
 CREATE POLICY "Images are publicly accessible" 
 ON storage.objects FOR SELECT 
 USING (bucket_id = 'images');

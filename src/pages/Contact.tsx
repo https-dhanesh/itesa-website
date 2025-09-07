@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, MapPin, Phone, Clock } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -56,6 +57,17 @@ const Contact = () => {
   };
 
   return (
+    <>
+     <Helmet>
+        <title>Contact Us | ITESA DYPCOE</title>
+        <meta 
+          name="description" 
+          content="Get in touch with the ITESA student club at DYPCOE. Send us a message, find our contact details, or connect with us on social media." 
+        />
+        <meta property="og:title" content="Contact Us | ITESA DYPCOE" />
+        <meta property="og:description" content="Get in touch with the ITESA student club at DYPCOE." />
+        <meta property="og:url" content="https://www.yourdomain.com/contact" /> 
+      </Helmet>
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-16">
@@ -219,6 +231,7 @@ const Contact = () => {
       </main>
       <Footer />
     </div>
+    </>
   );
 };
 
