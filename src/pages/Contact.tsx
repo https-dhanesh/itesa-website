@@ -66,7 +66,7 @@ const Contact = () => {
         />
         <meta property="og:title" content="Contact Us | ITESA DYPCOE" />
         <meta property="og:description" content="Get in touch with the ITESA student club at DYPCOE." />
-        <meta property="og:url" content="https://www.yourdomain.com/contact" /> 
+        <meta property="og:url" content="https://itesa-dypcoe.vercel.app/" /> 
       </Helmet>
     <div className="min-h-screen bg-background">
       <Navbar />

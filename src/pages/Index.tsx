@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'; // --- 1. Import Helmet ---
+import { Helmet } from 'react-helmet-async';
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import EventsPreview from "@/components/EventsPreview";
@@ -16,7 +16,7 @@ const Index = () => {
         <meta property="og:title" content="ITESA - Official Tech Club of DYPCOE" />
         <meta property="og:description" content="Find our latest events, meet the team, and get involved with the premier tech club at DYPCOE." />
         <meta property="og:image" content="https://bhephgetoquqyffcbxgt.supabase.co/storage/v1/object/public/images/logo.webp" />
-        <meta property="og:url" content="https://www.yourdomain.com/" /> 
+        <meta property="og:url" content="https://itesa-dypcoe.vercel.app/" /> 
       </Helmet>
 
       <div className="min-h-screen bg-background">

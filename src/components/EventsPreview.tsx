@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Event {
   id: string;
@@ -135,18 +136,20 @@ const EventsPreview = () => {
                       {event.location}
                     </div>
                   )}
-                  
+                  <Link to="/events">
                   <Button variant="ghost" className="w-full mt-4 text-primary hover:bg-primary/10 group/btn">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))
           )}
         </div>
-
+          
         <div className="text-center">
+          <Link to="/events">
           <Button 
             size="lg" 
             className="bg-gradient-button hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg px-8 py-3"
@@ -154,6 +157,7 @@ const EventsPreview = () => {
             View All Events
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          </Link>
         </div>
       </div>
     </section>

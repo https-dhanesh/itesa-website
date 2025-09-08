@@ -49,17 +49,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex">
-            {/* --- CHANGE: Replaced h1 with img tag for the logo --- */}
             <Link to="/">
               <img 
-                src="https://bhephgetoquqyffcbxgt.supabase.co/storage/v1/object/public/images/logo.webp" 
+                src="https://bhephgetoquqyffcbxgt.supabase.co/storage/v1/object/public/images/white_ITESA__png-removebg-preview.png" 
                 alt="ITESA Logo" 
-                className="h-10 w-auto" // Adjust height as needed
+                className="h-6 w-auto" 
               />
             </Link>
-            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent pt-1 pl-2">
-              ITESA
-            </h1>
           </div>
 
           <div className="hidden md:block">
