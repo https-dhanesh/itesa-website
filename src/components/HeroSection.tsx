@@ -14,7 +14,7 @@ const HeroSection = () => {
   const suffixes = [
     "Innovations",
     "Growth",
-    "Discoveries",
+    "Learning",
     "Impact"
   ];
 
