@@ -13,7 +13,6 @@ const HeroSection = () => {
   const basePhrase = "10 Years of ";
   const suffixes = [
     "Innovations",
-    "Collaborations",
     "Growth",
     "Discoveries",
     "Impact"
