@@ -99,7 +99,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Club Info */}
           <div>
-            <h4 className="text-2xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">ITESA</h4>
+            <Link to="/">
+              <img 
+                src="https://bhephgetoquqyffcbxgt.supabase.co/storage/v1/object/public/images/itesa%20without%20backgroung%20png.png" 
+                alt="ITESA Logo" 
+                className="h-10 w-auto mb-4" 
+              />
+            </Link>
             <p className="text-foreground/70 mb-6 leading-relaxed">
               Innovation, Technology, and Excellence Students Association. 
               Empowering students through technology and innovation.

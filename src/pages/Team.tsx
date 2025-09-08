@@ -141,13 +141,6 @@ const Team = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
         <main className="pt-16">
-          <section className="py-10 bg-gradient-to-b from-background to-muted/20">
-            <div className="container mx-auto px-4 text-center">
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">Our Team</h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Meet the passionate individuals who make ITESA a thriving community</p>
-            </div>
-          </section>
-
           {dignitaries.length > 0 && (
             <section className="py-8 bg-background">
               <div className="container mx-auto px-4">
@@ -159,6 +152,12 @@ const Team = () => {
               </div>
             </section>
           )}
+          <section className="py-10 bg-gradient-to-b from-background to-muted/20">
+            <div className="container mx-auto px-4 text-center">
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">Our Team</h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Meet the passionate individuals who make ITESA a thriving community</p>
+            </div>
+          </section>
 
           {(president || vicePresidents.length > 0) && (
             <section className="py-8 bg-muted/20">
